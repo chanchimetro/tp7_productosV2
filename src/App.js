@@ -1,6 +1,7 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './elements/home/Home.js';
+import Layout from './elements/layout/Layout.js';
 import Main from './elements/main/Main.js';
 import Contact from './elements/contact/Contact.js';
 import NoPage from './elements/noPage/NoPage.js';
