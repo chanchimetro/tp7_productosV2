@@ -1,19 +1,21 @@
+import { Link } from 'react-router-dom';
 import './card.css';
 
 function Card({ item }) {
     return (
-        <div className='col-md-2'>
-            <div class="card h-100">
-                <img src={item.thumbnail} className="card-img-top" alt="No Image Available" />
-                <div class="card-body">
-                    <h5 class="card-title">{item.title}</h5>
-                    <p class="card-text">{item.rating}/5 ⭐</p>
-                </div>
-                <div class="card-footer">
-                    <a href="./listing.html?id=${item.id}" class="btn btn-primary">Ver producto</a>
+        <Link to={`/listing/${item.id}`} className='text-decoration-none'>
+            <div className='col'>
+                <div class="card">
+                    <div className='h-75 d-flex justify-content-center'>
+                        <img src={item.thumbnail} class="card-img-top img-fluid h-100 w-auto" alt={item.title} />
+                    </div>
+                    <div class="card-body">
+                        <div class="card-title text-wrap h5">$ {item.price}</div>
+                        <p class="card-text fw-light text-wrap">{item.title}</p>
+                    </div>
                 </div>
             </div>
-        </div>
+        </Link>
     );
 }
 

@@ -2,3 +2,8 @@
 {
     box-shadow: 1px 1px 13px gray;
 }
+
+.card
+{
+    height: 20vw !important;
+}

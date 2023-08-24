@@ -5,21 +5,30 @@ import { Outlet, Link } from "react-router-dom";
 function Layout() {
     return (
         <div className="">
-            <nav className="navbar bg-body-tertiary">
-                <div className="container-fluid">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container-fluid">
                     <Link to='/' className="navbar-brand">
-                        <img src="https://http2.mlstatic.com/frontend-assets/ml-web-navigation/ui-navigation/6.4.1/mercadolibre/logo__large_plus.png" alt="MercaLibre" width="100%"/>
+                        <img src="https://http2.mlstatic.com/frontend-assets/ml-web-navigation/ui-navigation/6.4.1/mercadolibre/logo__large_plus.png" alt="MercaLibre" width="100%" />
                     </Link>
-                    <form className="d-flex" role="search">
-                        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                        <button className="btn btn-outline-success" type="submit">Search</button>
-                    </form>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <Link to='/' className="nav-item text-decoration-none">
+                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            </Link>
+                            <Link to='/main' className="nav-item text-decoration-none">
+                                <a class="nav-link" aria-current="page" href="#">Catalogo</a>
+                            </Link>
+                            <Link to='/contact' className="nav-item text-decoration-none">
+                                <a class="nav-link" aria-current="page" href="#">Contactanos</a>
+                            </Link>
+                        </ul>
+                    </div>
                 </div>
             </nav>
             <Outlet />
-            <footer className="bg-body-tertiary py-3 mt-5 mx-0 text-muted">
-                Esto es un footer!
-            </footer>
         </div>
     );
 }
