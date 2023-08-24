@@ -5,6 +5,7 @@ import Layout from './pages/layout/Layout.js';
 import Main from './pages/main/Main.js';
 import Contact from './pages/contact/Contact.js';
 import Listing from './pages/listing/Listing.js'
+import Category from './pages/category/Category.js';
 import NoPage from './pages/noPage/NoPage.js';
 
 function App() {

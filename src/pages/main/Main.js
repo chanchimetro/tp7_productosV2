@@ -45,7 +45,7 @@ function Main() {
           </button>
           <ul className="dropdown-menu">
             {categories.map((cat) => (
-              <li><Link className="dropdown-item text-decoration-none" to={`/category/${cat}`}>{cat}</Link></li>
+              <li><Link className="dropdown-item text-decoration-none text-capitalize" to={`/category/${cat}`}>{cat}</Link></li>
             ))}
           </ul>
         </div>

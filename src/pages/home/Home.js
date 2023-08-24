@@ -3,7 +3,7 @@ import axios from 'axios';
 import Card from '../../elements/card/Card';
 import './home.css';
 import { Link } from 'react-router-dom';
-import Carousel from '../../elements/carousel/Carousel';
+import Carousel from '../../elements/carousel/Carousel.js';
 
 function Home() {
   let carrouselImgs = ["https://http2.mlstatic.com/D_NQ_625255-MLA71082476542_082023-OO.webp", "https://http2.mlstatic.com/D_NQ_777306-MLA71214262048_082023-OO.webp", "https://http2.mlstatic.com/D_NQ_669817-MLA71131508864_082023-OO.webp"];
