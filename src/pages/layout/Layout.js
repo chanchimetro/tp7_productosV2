@@ -1,5 +1,6 @@
 import './layout.css';
 import { Outlet, Link } from "react-router-dom";
+import cartImg from "../../assets/shopping-cart-outline.svg"
 
 
 function Layout() {
@@ -26,6 +27,7 @@ function Layout() {
                             </Link>
                         </ul>
                     </div>
+                    <img src={cartImg} className="cartImg"></img>
                 </div>
             </nav>
             <Outlet />
