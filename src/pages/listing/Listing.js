@@ -48,7 +48,7 @@ function Listing() {
                 <Link to="/main" className='backButton row text-decoration-none'>
                     <button className='btn mb-2 btn-secondary'>&#8249; Volver</button>
                 </Link>
-                <span className='row'>
+                <span className='row mt-2'>
                     <div id="listingCarousel" className="carousel rounded border slide col-4">
                         <div className="carousel-inner">
                             {
