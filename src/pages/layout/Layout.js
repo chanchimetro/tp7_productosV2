@@ -1,13 +1,10 @@
 import './layout.css';
 import { Outlet, Link } from "react-router-dom";
 import cartImg from "../../assets/shopping-cart-outline.svg"
-import CartItem from "../../elements/cartItem/CartItem.js";
-import { useContext } from 'react';
-import { cartContext } from '../../contexts/cartContext';
+import CartModal from "../../elements/cartModal/CartModal.js"
 
 
 function Layout() {
-    const cart = useContext(cartContext);
     return (
         <div className="">
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -34,25 +31,7 @@ function Layout() {
                     <button type="button" className="btn" data-bs-toggle="modal" data-bs-target="#cartModal">
                         <img src={cartImg} className="cartImg"></img>
                     </button>
-
-                    <div className="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
-                        <div className="modal-dialog modal-dialog-scrollable">
-                            <div className="modal-content">
-                                <div className="modal-header">
-                                    <h1 className="modal-title fs-5" id="cartModalLabel">Carrito</h1>
-                                </div>
-                                <div className="modal-body">
-                                    {
-                                        cart.UserCart.Length == 0 ? <div>Carrito vacio</div> : <div>Carrito vacio</div>
-                                    }
-                                </div>
-                                <div className="modal-footer">
-                                    <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="button" className="btn btn-primary">Save changes</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <CartModal/>
                 </div>
             </nav>
             <Outlet />

@@ -2,9 +2,28 @@ import './listing.css';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link, useParams } from "react-router-dom";
+import { useContext } from 'react';
+import { cartContext } from '../../contexts/cartContext.js';
+
+const addToCart = (item, cart, q) => {
+    cart.setUserCart(
+        [
+            ...cart.userCart,
+            {
+                title: item.title,
+                price: item.price,
+                img: item.thumbnail,
+                q: q
+            }
+        ]
+    );
+    console.log(cart.userCart);
+}
 
 function Listing() {
+    const cart = useContext(cartContext);
     const params = useParams();
+    const [q, setQ] = useState(1);
     const [loading, setLoading] = useState(true);
     const [item, setItem] = useState();
 
@@ -21,7 +40,7 @@ function Listing() {
 
     return (
         loading ?
-            <div class="spinner-border text-secondary" role="status">
+            <div class="spinner-border text-secondary text-center" role="status">
                 <span class="visually-hidden">Loading...</span>
             </div>
             :
@@ -63,17 +82,23 @@ function Listing() {
                             <span className="visually-hidden">Next</span>
                         </button>
                     </div>
-                    <span className="mx-3 col-3">
+                    <span className="mx-3 col-4">
                         <p className="text-muted p-0 text-capitalize">{item.category}</p>
                         <hr />
                         <p className="h3 fw-bold" id="productTitle">{item.title}</p>
                         <p id="productRating">{item.rating}/5 ⭐</p>
                         <p id="productDesc">{item.description}</p>
-                        <p className="fw-bold h3" id="productPrice">$ {item.price}</p>
-                        <button className='btn btn-primary mt-5'>Comprar</button>
+                        <p className="fw-bold h3 mt-2" id="productPrice">$ {item.price}</p>
+                        <div class="btn-group btn-group-sm mt-2" role="group" aria-label="Small button group">
+                            <button type="button" class="btn btn-outline-secondary" onClick={() => {if (q > 1)  setQ(q - 1)}}>-</button>
+                            <span class="btn btn-outline-secondary">{q}</span>
+                            <button type="button" class="btn btn-outline-secondary" onClick={() => setQ(q + 1)}>+</button>
+                        </div>
+                        <br/>
+                        <button className='btn btn-primary mt-3' onClick={() => addToCart(item, cart, q)}>Agregar al carrito</button>
                     </span>
                 </span>
-                </div>
+            </div>
     );
 }
 

@@ -12,7 +12,6 @@ import NoPage from './pages/noPage/NoPage.js';
 import { cartContext } from './contexts/cartContext';
 
 function App() {
-  const cartContext = React.createContext();
 
   const [userCart, setUserCart] = useState([]);
 
