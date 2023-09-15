@@ -1,9 +1,13 @@
 import './layout.css';
 import { Outlet, Link } from "react-router-dom";
 import cartImg from "../../assets/shopping-cart-outline.svg"
+import CartItem from "../../elements/cartItem/CartItem.js";
+import { useContext } from 'react';
+import { cartContext } from '../../contexts/cartContext';
 
 
 function Layout() {
+    const cart = useContext(cartContext);
     return (
         <div className="">
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -38,34 +42,9 @@ function Layout() {
                                     <h1 className="modal-title fs-5" id="cartModalLabel">Carrito</h1>
                                 </div>
                                 <div className="modal-body">
-                                    <li className='list-group-item'>
-                                        <div className='container row'>
-                                            <div className='col-3'>
-                                                <img className='img-fluid' src='https://i.dummyjson.com/data/products/3/1.jpg'></img>
-                                            </div>
-                                            <div className='col'>
-                                                <div className='row'>
-                                                    <div className='col fw-semibold cart-prod-title fs-5'> TITULO</div>
-                                                    <div className='col'>
-                                                        <img className="float-end" src='https://icons8.com/icon/1942/trash' data-bs-dismiss="modal" aria-label="Close"></img>
-                                                    </div>
-                                                </div>
-                                                <div className='row mt-4'>
-                                                    <div className='col'>
-                                                        <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
-                                                            <button type="button" class="btn btn-outline-secondary">-</button>
-                                                            <span class="btn btn-outline-secondary">4</span>
-                                                            <button type="button" class="btn btn-outline-secondary">+</button>
-                                                        </div>
-                                                    </div>
-                                                    <div className='col'>
-                                                        <div className='float-end fw-bold fs-5'>$ 123</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <hr></hr>
+                                    {
+                                        cart.UserCart.Length == 0 ? <div>Carrito vacio</div> : <div>Carrito vacio</div>
+                                    }
                                 </div>
                                 <div className="modal-footer">
                                     <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
