@@ -8,11 +8,12 @@ function CartModal() {
     const [total, setTotal] = useState(0);
 
     useEffect(() => {
-        setTotal(0);
-        cart.userCart.map((item) => (
-            setTotal(total + item.price * item.q)
-        ));
-    }, [cart.userCart]);
+        let t  = 0;
+        cart.userCart.forEach(element => {
+            t += element.price * element.q;
+        });
+        setTotal(t);
+        }, [cart.userCart]);
 
     return (
         <div className="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">

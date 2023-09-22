@@ -13,9 +13,10 @@ const changeItemQ = (index, item, cart, x) => {
     let auxArray = cart.userCart;
     auxArray.splice(index, 1,
         {
+            id: item.id,
             title: item.title,
             price: item.price,
-            img: item.thumbnail,
+            img: item.img,
             q: item.q + x
         });
     cart.setUserCart([...auxArray]);
