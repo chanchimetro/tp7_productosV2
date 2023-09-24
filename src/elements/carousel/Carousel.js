@@ -1,4 +1,5 @@
 import './carousel.css';
+import PropTypes from 'prop-types';
 
 function Carousel({ imgList }) {
     return (
@@ -27,5 +28,9 @@ function Carousel({ imgList }) {
         </div>
     );
 }
+
+Carousel.propTypes = {
+    imgList: PropTypes.array
+};
 
 export default Carousel;

@@ -8,6 +8,7 @@ import Main from './pages/main/Main.js';
 import Contact from './pages/contact/Contact.js';
 import Listing from './pages/listing/Listing.js'
 import Category from './pages/category/Category.js';
+import Checkout from './pages/checkout/Checkout.js';
 import NoPage from './pages/noPage/NoPage.js';
 import { cartContext } from './contexts/cartContext';
 
@@ -23,6 +24,7 @@ function App() {
             <Route index element={<Home />} />
             <Route path="main" element={<Main />} />
             <Route path="contact" element={<Contact />} />
+            <Route path="checkout" element={<Checkout />} />
             <Route path='/listing/:itemId' element={<Listing />} />
             <Route path='/category/:cat' element={<Category />} />
             <Route path="*" element={<NoPage />} />

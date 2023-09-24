@@ -3,6 +3,7 @@ import './card.css';
 import { lookInCart } from '../../pages/listing/Listing';
 import { useContext, useEffect, useState } from 'react';
 import { cartContext } from '../../contexts/cartContext';
+import PropTypes from 'prop-types'
 
 function Card({ item }) {
 	const [inCart, setInCart] = useState(false);
@@ -27,5 +28,9 @@ function Card({ item }) {
 		</Link>
 	);
 }
+
+Card.propTypes = {
+	item: PropTypes.object
+};
 
 export default Card;

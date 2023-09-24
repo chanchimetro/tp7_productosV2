@@ -1,7 +1,8 @@
 import "./CartItem.css"
 import trashImg from "../../assets/icons8-trash.svg";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { cartContext } from "../../contexts/cartContext";
+import PropTypes from 'prop-types';
 
 const removeItem = (index, cart) => {
     let auxArray = cart.userCart;
@@ -29,13 +30,13 @@ function CartItem({ item, itemIndex }) {
         <li className='list-group-item'>
             <div className='container row'>
                 <div className='col-3'>
-                    <img className='img-fluid' src={item.img}></img>
+                    <img className='img-fluid' src={item.img} alt="Item Image"></img>
                 </div>
                 <div className='col'>
                     <div className='row'>
                         <div className='col-8 fw-semibold cart-prod-title fs-6'>{item.title}</div>
                         <div className='col'>
-                            <button className="float-end btn p-0" onClick={() => removeItem(itemIndex, cart)}><img src={trashImg}></img></button>
+                            <button className="float-end btn p-0" onClick={() => removeItem(itemIndex, cart)}><img src={trashImg} alt="trash-bin"></img></button>
                         </div>
                     </div>
                     <div className='row mt-2'>
@@ -53,5 +54,10 @@ function CartItem({ item, itemIndex }) {
         </li>
     );
 }
+
+CartItem.propTypes = {
+    item: PropTypes.object,
+    itemIndex: PropTypes.number
+};
 
 export default CartItem;

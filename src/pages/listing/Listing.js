@@ -23,11 +23,9 @@ const addToCart = (item, cart, q) => {
 
 export const lookInCart = (item, cart) => {
 	let i = 0;
-	if (item) {
-		while (i < cart.userCart.length) {
-			if (cart.userCart[i].id === item.id) return true;
-			i++;
-		}
+	while (i < cart.userCart.length) {
+		if (cart.userCart[i].id === item.id) return true;
+		i++;
 	}
 	return false;
 }
@@ -52,7 +50,15 @@ function Listing() {
 	}, []);
 
 	useEffect(() => {
-		setInCart(lookInCart(item, cart));
+		if (item) {
+			setInCart(lookInCart(item, cart));
+		}
+	}, [item]);
+
+	useEffect(() => {
+		if(item) {
+			setInCart(lookInCart(item, cart));
+		}
 	}, [cart.userCart]);
 
 	return (
