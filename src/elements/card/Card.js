@@ -19,7 +19,7 @@ function Card({ item }) {
 					<div className='h-75 d-flex justify-content-center'>
 						<img src={item.thumbnail} class="card-img-top img-fluid h-100 w-auto" alt={item.title} />
 					</div>
-					<div class="card-body">
+					<div class="card-body h-25">
 						<div class="card-title text-wrap h5">$ {item.price}</div>
 						<p class="card-text fw-light text-wrap">{inCart ? `${item.title} ✅` : item.title}</p>
 					</div>
