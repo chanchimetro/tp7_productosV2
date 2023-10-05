@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './pages/home/Home.js';
 import Layout from './pages/layout/Layout.js';
@@ -13,11 +13,15 @@ import NoPage from './pages/noPage/NoPage.js';
 import { cartContext } from './contexts/cartContext';
 
 function App() {
+  let cart = localStorage.getItem("cart");
+  const [userCart, setUserCart] = useState(cart ? JSON.parse(cart) : []);
 
-  const [userCart, setUserCart] = useState([]);
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(userCart));
+  }, [userCart]);
 
   return (
-    <cartContext.Provider value={{userCart, setUserCart}}>
+    <cartContext.Provider value={{ userCart, setUserCart }}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
